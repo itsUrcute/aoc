@@ -31,7 +31,7 @@ def day2_1(list):
     for i in list:
         num1 = int(i.split("-")[0])
         num2 = int(i.split("-")[1].split(" ")[0])
-        sent = i.split(": ")[1].replace("\n","")
+        sent = i.split(": ")[1]
         lett = i.split(": ")[0].split(" ")[1]
         if (sent[num1-1] == lett and sent[num2-1] != lett) or (sent[num2-1] == lett and sent[num1-1]!=lett):
             x+=1
@@ -39,7 +39,7 @@ def day2_1(list):
 
 
 			
-print(f"day 1, solution1 = {day1(alist)}")
-print(f"day 1, solution2 = {day1_2(alist)}")
+print(f"day 1, solution 1 = {day1(alist)}")
+print(f"day 1, solution 2 = {day1_2(alist)}")
 print(f"day 2, solution 1 = {day2(passlist)}")
 print(f"day 2, solution 2 = {day2_1(passlist)}")
