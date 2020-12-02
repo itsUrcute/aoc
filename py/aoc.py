@@ -1,4 +1,4 @@
-with open("input.txt", "r") as file:
+cdwith open("input.txt", "r") as file:
     list = list(map(lambda x: int(x), file.readlines()))
 
 def day1(list):
