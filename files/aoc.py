@@ -4,6 +4,9 @@ with open("input1.txt", "r") as file:
 with open("input2.txt", "r") as file:
     passlist = list(map(lambda x:x, file.readlines()))
 
+with open("input3.txt", "r") as file:
+    treelist = list(map(lambda x:x, file.readlines()))
+
 
 def day1(list):
 	for i in list:
@@ -37,9 +40,47 @@ def day2_2(list):
             x+=1
     return x
 
+def day3(list):
+	x=0
+	start=0
+	for i in range(1,len(list)):
+		start+=3
+		if start>30:
+			start-=31
+		if(list[i][start]=="#"):
+			x+=1
+	return x
+
+def day3_2(list):
+	x=0
+	y=1
+	z=0
+	for s in range(1,10,2):
+		right=0
+		down =1
+		if s==9:
+			s = 1
+			down = 2
+		for i in range(1,len(list),down):
+			if down==2:
+				i+=1
+			right+=s
+			if right>30:
+				right-=31
+			if(list[i][right]=="#"):
+				x+=1
+		q=x-z
+		y*=q
+		z=x
+				
+	return y
+
+
 
 			
 print(f"day 1, solution 1 = {day1(alist)}")
 print(f"day 1, solution 2 = {day1_2(alist)}")
 print(f"day 2, solution 1 = {day2(passlist)}")
 print(f"day 2, solution 2 = {day2_2(passlist)}")
+print(f"day 3, solution 1 = {day3(treelist)}")
+print(f"day 3, solution 2 = {day3_2(treelist)}")
