@@ -1,15 +1,18 @@
 with open("input.txt", "r") as file:
     credlist = file.read().split("\n\n")
 
-for i in credlist:
-    credlist = [sub.replace('\n', ' ') for sub in credlist]
+def sol(list):
+    for i in list:
+        list = [sub.replace('\n', ' ') for sub in list]
 
-x=0
-for i in credlist:
-    if len(i.split(" "))<7:
-        x+=1
-    if len(i.split(" "))>=7:
-        for a in i.split(" "):
-            if a.startswith("cid") and len(i.split(" "))==7:
-                x+=1
-print(len(credlist)-x)
+    x=0
+    for i in list:
+        if len(i.split(" "))<7:
+            x+=1
+        if len(i.split(" "))>=7:
+            for a in i.split(" "):
+                if a.startswith("cid") and len(i.split(" "))==7:
+                    x+=1
+    return len(list)-x
+
+print(f"day 4, solution 1 = {sol(credlist)}")
